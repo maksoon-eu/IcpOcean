@@ -25,13 +25,13 @@ const createImg = document.querySelector('.create__box-flexbox img');
 
 cardItems.forEach(item => {
     item.addEventListener('click', () => {
-        nameOfCard = item.querySelector('.create__group-title').innerText
+        nameOfCard = item.querySelector('.create__group-title').innerText;
         localStorage.setItem('nameOfCard', nameOfCard);
     });
 });
 
 inputTitle.textContent = localStorage.getItem('nameOfCard');
-createImg.src = `assets/img/${localStorage.getItem('nameOfCard')}.png`;
+createImg.src = `assets/img/${localStorage.getItem('nameOfCard').toLowerCase}.png`;
 
 const inputs = document.querySelectorAll('.line-chek'),
       btn = document.querySelector('.btn--non'),
@@ -45,14 +45,14 @@ const inputs = document.querySelectorAll('.line-chek'),
 
 function limitedValue(nameOfValue, count) {
     if (nameOfValue.textContent.length > count) {
-        nameOfValue.textContent = nameOfValue.textContent.slice(0, count) + '...'
+        nameOfValue.textContent = nameOfValue.textContent.slice(0, count) + '...';
     }
 }
 
 inputs.forEach(item => {
     
     let statusMessage = document.createElement('div');
-    statusMessage.innerHTML = 'Invalid value'
+    statusMessage.innerHTML = 'Invalid value';
                 statusMessage.style.cssText = `
                     font-size: 12px;
                     line-height: 14px;
@@ -61,7 +61,7 @@ inputs.forEach(item => {
                 `;
     item.addEventListener('input', () => {
 
-        nameOfWork.textContent = nameInput.value
+        nameOfWork.textContent = nameInput.value;
 
         if (item.value == '') {
             statusMessage.style.color = '#e85b67';
@@ -91,7 +91,7 @@ inputs.forEach(item => {
 });
 
 let statusMessageCopies = document.createElement('div');
-statusMessageCopies.innerHTML = 'Copies must be more than 1'
+statusMessageCopies.innerHTML = 'Copies must be more than 1';
         statusMessageCopies.style.cssText = `
                     font-size: 12px;
                     line-height: 14px;
@@ -144,9 +144,9 @@ function previewFile(input, inputImg) {
     if (file) {
       const reader = new FileReader();
 
-      reader.onload = function(){
+      reader.onload = function() {
         inputImg.setAttribute("src", reader.result);
-      }
+      };
 
       reader.readAsDataURL(file);
     }
@@ -172,7 +172,7 @@ function thanksModal() {
         modalThanks.style.display = 'none';
         modalThanks.classList.remove('fade');
         modalThanks.classList.remove('fadeOut');
-        window.location.href = 'create.html'
+        window.location.href = 'create.html';
     }, 3000);
 }
 
