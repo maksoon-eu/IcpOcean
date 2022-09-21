@@ -31,7 +31,7 @@ cardItems.forEach(item => {
 });
 
 inputTitle.textContent = localStorage.getItem('nameOfCard');
-createImg.src = `assets/img/${localStorage.getItem('nameOfCard').toLowerCase}.png`;
+createImg.src = `assets/img/${localStorage.getItem('nameOfCard').toLowerCase()}.png`;
 
 const inputs = document.querySelectorAll('.line-chek'),
       btn = document.querySelector('.btn--non'),
